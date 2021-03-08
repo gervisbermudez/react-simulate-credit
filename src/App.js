@@ -8,6 +8,9 @@ import 'rc-slider/assets/index.css';
 
 function App() {
 
+  const montoMin = 5000;
+  const montoMax = 50000;
+
   const [montoTotal, setMontoTotal] = useState(5000);
   const [plazo, setPlazo] = useState(3);
 
@@ -37,16 +40,16 @@ function App() {
             <Input
               id="montoTotal"
               name="montoTotal"
-              min={5000}
-              max={50000}
+              min={montoMin}
+              max={montoMax}
               type="number" className="amount-border" value={montoTotal} onChange={handleChangeMontoTotal} />
           </div>
         </div>
         <div className="row mt-3">
           <div className="col">
             <Slider
-              min={5000}
-              max={50000}
+              min={montoMin}
+              max={montoMax}
               value={montoTotal}
               onChange={setMontoTotal}
             />
@@ -54,10 +57,10 @@ function App() {
         </div>
         <div className="row">
           <div className="col">
-            <span className="sub-slider">$ 5.0000</span>
+            <span className="sub-slider">$ {montoMin}</span>
           </div>
           <div className="col text-right">
-            <span className="sub-slider">$ 50.0000</span>
+            <span className="sub-slider">$ {montoMax}</span>
           </div>
         </div>
         <div className="row mt-4">
